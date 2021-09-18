@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Staff extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['user_id', 'description'];
+
+    public function staffs() {
+        return $this->belongsToMany(StaffMember::class);
+    }
 }

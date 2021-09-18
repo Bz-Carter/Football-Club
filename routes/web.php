@@ -17,6 +17,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Auth:: routes(['verify' => true]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::group(['middleware' => ['auth', 'verified']], function() {
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::resource('postedejoueur', App\Http\Controllers\WorkController::class);
+    Route::resource('joueurs', App\Http\Controllers\FootballplayerController::class);
+    Route::resource('jobdemembre', App\Http\Controllers\StaffjobController::class);
+    Route::resource('membres', App\Http\Controllers\StaffmemberController::class);
+    Route::resource('staffs', App\Http\Controllers\StaffController::class);
+    Route::resource('categories', App\Http\Controllers\CategoryController::class);
+});

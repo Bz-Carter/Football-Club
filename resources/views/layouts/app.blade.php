@@ -58,6 +58,24 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('postedejoueur.create') }}">
+                                        {{ __('Créer un poste de joueur') }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('joueurs.create') }}">
+                                        {{ __('Inscrire un joueur ') }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('jobdemembre.create') }}">
+                                        {{ __('Créer un Job de membre ') }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('membres.create') }}">
+                                        {{ __('Ajouter un membre') }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('staffs.create') }}">
+                                        {{ __('Créer un staff ') }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('categories.create') }}">
+                                        {{ __('Ajouter une categorie') }}
+                                    </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

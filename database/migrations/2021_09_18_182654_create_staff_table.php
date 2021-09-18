@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFootballPlayersTable extends Migration
+class CreateStaffTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,9 @@ class CreateFootballPlayersTable extends Migration
      */
     public function up()
     {
-        Schema::create('football_players', function (Blueprint $table) {
+        Schema::create('staff', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained();
-            $table->string('photo');
-            $table->string('first_name');
-            $table->string('last_name');
-            $table->string('player_name');
-            $table->date('birth_day');
-            $table->string('size');
-            $table->string('weight');
             $table->string('description');
             $table->timestamps();
         });
@@ -35,6 +28,6 @@ class CreateFootballPlayersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('football_players');
+        Schema::dropIfExists('staff');
     }
 }

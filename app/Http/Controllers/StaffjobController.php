@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
-use App\Http\Requests\StoreCategoryRequest;
+use App\Models\StaffJob;
+use App\Http\Requests\StoreStaffjobRequest;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class StaffjobController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -25,7 +25,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('category.create');
+        return view('job-de-membre.create');
     }
 
     /**
@@ -34,11 +34,11 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreCategoryRequest $request)
+    public function store(StoreStaffjobRequest $request)
     {
-        $category = Category::create($request->validated());
+        $staffjob = StaffJob::create($request->validated());
 
-        return redirect()->route('categories.show', $category);
+        return redirect()->route('jobdemembre.show', $staffjob);
     }
 
     /**
@@ -47,9 +47,9 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(StaffJob $staffjob)
     {
-        //
+        return $staffjob->name;
     }
 
     /**

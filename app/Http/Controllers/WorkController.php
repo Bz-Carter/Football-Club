@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
-use App\Http\Requests\StoreCategoryRequest;
+use App\Models\Work;
+use App\Http\Requests\StoreWorkRequest;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class WorkController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -25,7 +25,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('category.create');
+        return view('poste-de-joueur.create');
     }
 
     /**
@@ -34,11 +34,11 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreCategoryRequest $request)
+    public function store(StoreWorkRequest $request)
     {
-        $category = Category::create($request->validated());
+        $work = Work::create($request->validated());
 
-        return redirect()->route('categories.show', $category);
+        return redirect()->route('jobdemembre.show', $work);
     }
 
     /**
@@ -47,9 +47,9 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Work $work)
     {
-        //
+        return $work->name;
     }
 
     /**
